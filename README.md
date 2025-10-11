@@ -28,3 +28,13 @@ Documenting my journey learning data structures and algorithms for technical int
 - Reverse list
 
 ## 📁 Repository Structure
+
+## 🔗 Links
+
+- [LeetCode Profile](https://leetcode.com/your-username)
+- [Resume](https://bsanchez650.github.io)
+
+## 📚 Resources
+
+- NeetCode 150
+- LeetCode Patterns
