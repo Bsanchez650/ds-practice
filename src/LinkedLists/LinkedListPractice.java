@@ -46,35 +46,78 @@ public class LinkedListPractice {
 
         //ListNode newNode = new ListNode(val); i dont need top create a new node
         //if(head.val == val){- so my logic was correct but i have to take care of null checks
-            if(head != null & head.val == val){
-                return head.next;
+        if (head != null & head.val == val) {
+            return head.next;
         }
 
         ListNode temp = head;
         //while (temp.next.val != val){-> here too i have to take care of null checks,
         //we dont want our code crashing
-        while(temp != null && temp.next != null && temp.next.val != val){
-          temp = temp.next;
+        while (temp != null && temp.next != null && temp.next.val != val) {
+            temp = temp.next;
         }
         //newNode.next = newNode.next.next;-> since i dont got a newNOde i gotta out temp
         // but i also gotta create another check because two things can happen
         //either we found the data or its not in the list
         //so we gotta check
-        if(temp != null && temp.next != null) {
+        if (temp != null && temp.next != null) {
             temp.next = temp.next.next;
         }
         return head;
-
     }
 
 
 
+    public static ListNode reverseList(ListNode head) {
+        // Your code here
+        // Hints:
+        // 1. ListNode prev = null, current = head
+        // 2. while (current != null):
+        //    a. Save next: ListNode next = current.next
+        //    b. Reverse: current.next = prev
+        //    c. Move prev: prev = current
+        //    d. Move current: current = next
+        // 3. return prev (new head)
+        if(head == null){
+            return head;
+        }
+
+        ListNode prev = null, current = head;
+        while (current != null){
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+        return prev;
 
 
+    }
 
+    public static void printList(ListNode head){
+            ListNode temp = head;
+            while (temp != null) {
+                System.out.println("Linked List: " + temp.val);
+                temp = temp.next;
+            }
+            System.out.println("null");
+    }
     public static void main(String[] args){
+            // Create list: 1 -> 2 -> 3 -> 4 -> null
+            ListNode head = new ListNode(1);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(3);
+            head.next.next.next = new ListNode(4);
+
+            System.out.println("Before reverse:");
+            printList(head);
+
+            head = reverseList(head);
+
+            System.out.println("After reverse:");
+            printList(head);
+        }
 
     }
 
 
-}
